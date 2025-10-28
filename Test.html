@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>US Map Tooltip Example</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .map-container {
+      position: relative;
+      width: 1000px; /* fixed width for example */
+      margin: 20px auto;
+      border: 1px solid #ccc;
+    }
+    .imgusa {
+      width: 100%;
+      display: block;
+    }
+    .button-wrapper {
+      position: absolute;
+      width: 24px; /* increased size for easy hover */
+      height: 24px;
+      cursor: pointer;
+    }
+    .button {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      background: #2E5A88;
+      border: 1px solid black;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin: 6px auto; /* center */
+      display: block;
+      position: relative;
+    }
+    .hover-textbox {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      border-radius: 5px;
+      white-space: nowrap;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+      z-index: 20;
+      font-size: 14px;
+    }
+    .button-wrapper:hover .hover-textbox {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+    <header>
+        <div class ="white">
+            <h1>Interactive Map</h1>
+        </div>
+    </header>
+
+
+<!-- Nav -->
+    <ul>
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+    </ul>
+
+  <div class="map-container">
+    <img src="https://i.ibb.co/bgzZktt3/us.jpg" alt="US map" class="imgusa" />
+
+    <div class="button-wrapper" style="top: 420px; left: 310px;">
+      <div class="button"></div>
+      <div class="hover-textbox">Text for button 1</div>
+    </div>
+
+    <div class="button-wrapper" style="top: 395px; left: 600px;">
+      <div class="button"></div>
+      <div class="hover-textbox">Text for button 2</div>
+    </div>
+
+    <div class="button-wrapper" style="top: 405px; left: 650px;">
+      <div class="button"></div>
+      <div class="hover-textbox">Marbury v. Madison</div>
+    </div>
+
+    <div class="button-wrapper" style="top: 380px; left: 700px;">
+      <div class="button"></div>
+      <div class="hover-textbox">Text for button 4</div>
+    </div>
+
+    <div class="button-wrapper" style="top: 575px; left: 825px;">
+      <div class="button"></div>
+      <div class="hover-textbox">Text for button 5</div>
+    </div>
+  </div>
+</body>
+</html>

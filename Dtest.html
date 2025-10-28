@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donoghue v Stevenson</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>Donoghue v Stevenson</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United Kingdom Map.html">United Kingdom Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+          Known as the “snail in the bottle” case, Donoghue v Stevenson is one of the most important legal cases in modern history.
+          It established the principle of <em>negligence</em> and the duty of care owed to others — concepts that still underpin consumer protection laws worldwide today.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p></p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p></p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p></p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1932<br> <br>Court: House of Lords<br> <br>Legal Area: Tort (Negligence)<br> <br>Key Principle: Duty of Care<br> <br>Outcome: Donoghue won; established liability without contract</p>
+        </div>
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "necessity": "committing a crime to prevent a greater, imminent harm",
+      "murder": "the unlawful killing of a human being with intent to cause harm or kill",
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Entick v. Carrington</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>Entick v. Carrington (1765)</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United Kingdom Map.html">United Kingdom Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            Entick v Carrington is a landmark case in constitutional law that established the limits of executive power and reinforced the right to privacy and property — principles that continue to shape modern civil liberties.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>Government officials, acting under a warrant from the Earl of Halifax, searched John Entick’s home for allegedly seditious writings. They broke locks and seized papers without consent, prompting Entick to sue for trespass and damages.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>Carrington argued that the search was lawful because it was conducted under a valid government warrant. Entick contended the warrant had no legal basis and that his home was unlawfully entered and damaged.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>Lord Camden ruled in favor of Entick, declaring the warrant invalid as it lacked legal authority. He affirmed that government officials cannot infringe on private property without explicit legal justification.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>The ruling became a cornerstone of constitutional law, defining limits on state power and protecting individual rights. It influenced the U.S. Fourth Amendment and remains a foundational precedent for privacy and liberty.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1765<br> <br>Court: King's Bench<br> <br>Legal Area: Civil Liberties<br> <br>Key Principle: Rule of Law<br> <br>Outcome: Entick won; established state agents can't search private property without a lawful basis.</p>
+        </div>
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "warrant": "An order from a high official to search someone's property",
+      "Supreme Court": "The highest court with final say on constitutional matters.",
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+</script>
+
+</body>
+</html>
+
+<
+

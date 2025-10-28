@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+
+
+<body>
+
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+        <div class ="white">
+            <h1>Interactive Map</h1>
+        </div>
+    </header>
+
+
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+    </ul>
+
+    <div class="mapcontain">
+        <img src="https://i.ibb.co/pBtX4mjX/Untitled49-20250821201420.jpg" class="img1" alt="border">
+
+        <div class="map-text">
+            <h2>Explore Legal Landmarks</h2>
+            <p>
+              Click on highlighted regions to explore landmark legal cases from
+              the United States and the United Kingdom that shaped modern law and justice.
+            </p>
+        </div>
+
+        <a href="United States Map.html">
+            <div class="container-usa">
+                <div class="hover-usa">Click me to visit the USA</div>
+            </div>
+        </a>
+        <a href="United Kingdom Map.html">
+            <div class="container-uk">
+                <div class="hover-uk">Click me to visit the UK</div>
+            </div>
+        </a>
+
+    </div>
+
+
+</body>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+</script>
+
+</body>
+</html>

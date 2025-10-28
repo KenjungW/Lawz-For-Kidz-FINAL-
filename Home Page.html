@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Law For Kidz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+
+
+<body>
+
+<!-- This is the top section -->
+<div class="loader-container" id="loader">
+    <div class="gavel-single"></div>
+</div>
+
+<div class="Section_top"></div>
+<!-- Header -->
+    <header>
+        <div class ="white2">
+            <h1>Law For Kidz</h1>
+        </div>
+    </header>
+
+
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+    </ul>
+
+    <div class="content">
+        <p style="font-size: 55px;">Law For Kidz</p>
+        <p style="font-size: 40px;">Learn about law and important legal cases in an easy and fun way!</p>
+    </div>
+
+    <div class="button-nav">
+      <button class="map-button">
+        <div class="content-inside">
+          <div class="emoji">🌍</div>
+          <div class="button-text">Explore the <strong>Interactive Map</strong></div>
+          <div class="button-text">To discover legal cases</div>
+          <div class="button-text">country by country</div>
+        </div>
+      </button>
+
+      <button class="contact-button">
+        <div class="content-inside">
+          <div class="emoji">📱</div>
+          <div class="button-text">Access the <strong>Contact Us Page</strong></div>
+          <div class="button-text">To provide feedback</div>
+          <div class="button-text">about the website</div>
+        </div>
+      </button>
+
+      <button class="learn-button">
+        <div class="content-inside">
+          <div class="emoji">💡</div>
+          <div class="button-text">Read the <strong>Learn About Us Page</strong></div>
+          <div class="button-text">Learn about the origins</div>
+          <div class="button-text">of the website</div>
+        </div>
+      </button>
+    </div>
+
+</body>
+
+</body>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+</script>
+
+</body>
+</html>

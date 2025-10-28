@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schneck v. United States</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>Schneck v. United States (1919)</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United States Map.html">United States Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            This landmark case established the “clear and present danger” test, ruling that speech encouraging resistance to the draft during wartime was not protected under the First Amendment.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>Charles Schneck distributed leaflets urging resistance to the WWI draft, claiming it violated the 13th Amendment. He was arrested under the Espionage Act for interfering with the U.S. war effort.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>The U.S. argued the leaflets posed a “clear and present danger” to national security. Schneck claimed his speech was protected under the First Amendment and the Espionage Act suppressed freedoms.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>The Supreme Court unanimously ruled for the U.S., holding that speech creating a clear danger—like falsely shouting “fire” in a theater—is not protected under the First Amendment.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>The case became a key precedent in defining speech limits. Critics argued it restricted civil liberties, later influencing broader protections for free speech as interpretation of the First Amendment evolved.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1919<br> <br>Court: U.S. Supreme Court<br> <br>Legal Area: 1st Amendment<br> <br>Key Principle: National Security<br> <br>Outcome: Government won, established limits to free speech</p>
+        </div>
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "First Amendment": "The right to freedom of speech",
+      "13th Amendment": "The abolishment of involuntary servitude",
+      "Espionage Act": "The 1917 act that made disclosing information that might harm national security illegal",
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+</script>
+
+</body>
+</html>
+
+
+

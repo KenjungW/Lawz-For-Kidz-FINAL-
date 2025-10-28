@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marbury v. Madison</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+        <div class ="white">
+            <h1>Marbury v. Madison (1803)</h1>
+        </div>
+    </header>
+
+<!-- Nav -->
+    <ul id = "main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United States Map.html">United States Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            This landmark case established the principle of judicial review, empowering the Supreme Court to strike down laws deemed unconstitutional — cementing the Constitution as the nation’s highest authority.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>After President Thomas Jefferson ordered James Madison to withhold William Marbury’s judicial commission signed by outgoing President John Adams, Marbury invoked the Judiciary Act to petition the Supreme Court for a writ of mandamus, demanding the delivery of his rightful appointment.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>Madison argued the commission was invalid and the Judiciary Act unconstitutional. Marbury contended his commission was legally binding and that the Act gave him the right to court enforcement.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>The Supreme Court ruled Marbury was entitled to his commission but found the Judiciary Act unconstitutional, establishing judicial review and affirming the Constitution’s supremacy over all other laws.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>Initially debated, Marbury v. Madison became the foundation of American constitutional law, empowering courts to nullify unconstitutional acts and permanently defining the separation of powers in U.S. governance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1803<br> <br>Court: U.S. Supreme Court<br> <br>Legal Area: Constituional Law<br> <br>Key Principle: Judicial Review<br> <br>Outcome: Marbury entitled to commission, Constitution holds ultimate authority </p>
+        </div>
+
+    </div>
+
+
+<script>
+
+      const tooltips = {
+        "commission": "A grant for a person to perform a legal duty",
+        "writ of mandamus": "An order from a high court to a low court, compelling them to perform a legally mandated duty",
+        "Supreme Court": "The highest court with final say on constitutional matters.",
+        "judicial review": "A judge examines a decision by a public body to see if it was made lawfully.",
+        "Judiciary Act": "An act enacted in 1789 that build the legal and judicial framework of the United States",
+      };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+
+</script>
+
+
+</body>
+</html>

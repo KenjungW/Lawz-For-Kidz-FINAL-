@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RF v Secretary of State for Work and Pensions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>RF v Secretary of State for Work and Pensions (2017)</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United Kingdom Map.html">United Kingdom Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            RF v Secretary of State for Work and Pensions is a landmark case in <em>disability and human rights law</em>. It reaffirmed equality principles and challenged government policies that discriminated against people with mental health conditions.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>In 2017, new PIP regulations excluded those whose mobility issues stemmed from psychological distress. RF, granted anonymity, challenged the rule, arguing it unfairly discriminated against disabled individuals and sought to have it overturned.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>The Secretary of State argued the change was a necessary welfare reform expected to save £1 billion annually. RF contended it was discriminatory, breached human rights law, and exceeded the Secretary’s legal authority.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>The High Court ruled in favor of RF, finding the regulations unlawfully discriminatory toward disabled people. The court held that financial savings could not justify such unequal treatment, and the regulations were quashed.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>The ruling was widely celebrated by disability rights advocates. Organizations like Inclusion London and DPAC praised it as a landmark victory, strengthening protections against government discrimination toward people with disabilities.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 2017<br> <br>Court: High Courts<br> <br>Legal Area: Human Rights (Discrimination)<br> <br>Key Principle: Disability Discrimination<br> <br>Outcome: Found in favor of RF; PIP regulations found discriminatory</p>
+        </div>
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "discrimination": "showing an unjust or prejudicial distinction towards different categories",
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+</script>
+
+</body>
+</html>
+
+<
+

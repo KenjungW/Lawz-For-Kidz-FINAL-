@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Givhan v. Western Line Consolidated School District</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>Givhan v. Western Line Consolidated School District (1979)</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United States Map.html">United States Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            This Supreme Court case affirmed that teachers’ private complaints about racial discrimination are protected under the First Amendment, marking a pivotal moment for free speech and academic rights.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>Bessie Givhan, a Mississippi teacher, privately complained to her principal about racially discriminatory school policies. She was later dismissed, prompting a legal battle over whether private speech is constitutionally protected.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>The school district claimed Givhan’s behavior was hostile and unprofessional. Givhan argued her dismissal violated her First and Fourteenth Amendment rights, emphasizing that private speech on discrimination deserved constitutional protection.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>The Supreme Court unanimously sided with Givhan, ruling that private speech about public concerns, including racial discrimination, is protected under the First Amendment. Her reinstatement was left to the lower courts.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>Givhan was eventually reinstated after 12 years. Scholars praised the ruling for strengthening free speech protections, though some warned it blurred distinctions between public and private speech in academic settings.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1979<br> <br>Court: U.S. Supreme Court<br> <br>Legal Area: 1st and 14th Amendment<br> <br>Key Principle: Private Expression of Speech<br> <br>Outcome: Givhan won, private speech is protected under the First Amendment</p>
+        </div>
+
+    </div>
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const infoBox = document.getElementById('infoBox');
+
+     const tooltips = {
+       "First Amendment": "Protects fundamental freedoms including speech and religion.",
+       "Fourteenth Amendment": "Guarantees due process and equal protection under the law.",
+       "Supreme Court": "The highest court with final say on constitutional matters.",
+     };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+</script>
+
+
+</body>
+</html>

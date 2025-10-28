@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>United States Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+
+
+</head>
+
+
+<body>
+
+
+
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+        <div class ="white">
+            <h1>United States Map</h1>
+        </div>
+    </header>
+
+
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+    </ul>
+
+    <div class="mapcontain">
+        <img src="https://i.ibb.co/bgzZktt3/us.jpg" class="countryimg" alt="border">
+
+        <div class="button-wrapper" style="top: 420px; left: 200px;">
+          <a href="Korematsu.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">Korematsu v. United States</div>
+          </a>
+        </div>
+
+        <div class="button-wrapper" style="top: 395px; left: 860px;">
+          <a href="Madison.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">Marbury v. Madison</div>
+          </a>
+
+        </div>
+
+        <div class="button-wrapper" style="top: 405px; left: 850px;">
+          <a href="Heller.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">District of Columbia v. Heller</div>
+          </a>
+        </div>
+
+        <div class="button-wrapper" style="top: 375px; left: 880px;">
+          <a href="Schneck.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">Schneck v. United States</div>
+          </a>
+        </div>
+
+        <div class="button-wrapper" style="top: 535px; left: 670px;">
+          <a href="Givhan.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">Givhan v. Western Line Consolidated School District</div>
+          </a>
+        </div>
+
+        <div class="map-text">
+            <h2>Explore Legal Landmarks</h2>
+            <p>
+              Click on the buttons on the map to explore
+              different landmark cases in the United States.
+            </p>
+        </div>
+
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+</script>
+
+
+
+</body>
+
+</body>
+</html>

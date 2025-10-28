@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Korematsu v. United States</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>Korematsu v. United States (1944)</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United States Map.html">United States Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            This controversial Supreme Court case upheld the internment of Japanese-Americans during World War II, ruling that national security outweighed individual rights—a decision now regarded as a grave injustice.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>Following Pearl Harbor, Executive Order 9066 forced Japanese-Americans into relocation camps. Fred Korematsu refused to leave his home, was arrested, and appealed his conviction up to the Supreme Court.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>The government argued the relocation was necessary to prevent espionage and protect national security. Korematsu claimed the order violated his Fifth Amendment rights and deprived him of liberty without due process.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>In a 6–3 decision, the Supreme Court upheld the exclusion order, ruling it was justified by wartime necessity, not racial prejudice. Dissenting justices condemned it as unconstitutional and racist.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>Korematsu drew heavy criticism as a “legalization of racism.” It was later repudiated in 2018, with Chief Justice Roberts declaring it “gravely wrong.” The case remains a civil liberties warning.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1944<br> <br>Court: U.S. Supreme Court<br> <br>Legal Area: 5th Amendment<br> <br>Key Principle: military necessity and national security<br> <br>Outcome: Govenrment won, deemed curfews were justified for wartime necessity</p>
+        </div>
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+
+    const tooltips = {
+      "probation": "The release of an offender subjected to a period of good behavior under supervision",
+      "Fifth Amendment": "The right to due process and the ensuring a person can't testify against themselves",
+    };
+
+    function addTooltips(text) {
+      const pattern = new RegExp(Object.keys(tooltips).join("|"), "gi");
+      return text.replace(pattern, (matched) =>
+      `<span class="hover-text-wrapper">${matched}<div class="hover-textcase">${tooltips[matched]}</div></span>`
+      );
+    }
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+</script>
+
+
+</body>
+</html>

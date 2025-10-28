@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>United Kingdom Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+
+
+<body>
+
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+        <div class ="white">
+            <h1>United Kingdom Map</h1>
+        </div>
+    </header>
+
+
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+    </ul>
+
+    <div class="mapcontain">
+        <img src="https://i.ibb.co/YFFwcFVm/Screenshot-2568-10-24-at-14-14-47.png" class="ukimg" alt="border">
+
+        <div class="button-wrapper" style="top: 390px; left: 450px;">
+            <a href="Donoghue.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">Donoghue v Stevenson</div>
+            </a>
+        </div>
+
+        <div class="button-wrapper" style="top: 610px; left: 610px">
+            <a href="Pension.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">RF v Secretary of State for Work and Pensions</div>
+            </a>
+        </div>
+
+        <div class="button-wrapper" style="top: 630px; left: 610px;">
+            <a href="Carrington.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">Entick v Carrington</div>
+            </a>
+        </div>
+
+        <div class="button-wrapper" style="top: 630px; left: 620px;">
+            <a href="Beaverbrook.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">Silkin v Beaverbrook Newspaper LTD.</div>
+            </a>
+        </div>
+
+        <div class="button-wrapper" style="top: 670px; left: 570px;">
+          <a href="Dudley.html" class="tooltip-link">
+                <div class="button"></div>
+                <div class="hover-textbox">R v Dudley and Stephens</div>
+          </a>
+        </div>
+
+        <div class="map-text">
+            <h2>Explore Legal Landmarks</h2>
+            <p>
+              Click on the buttons on the map to explore
+              different landmark cases in the United States.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+</script>
+
+</html>

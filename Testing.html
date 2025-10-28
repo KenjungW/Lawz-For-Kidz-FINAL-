@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Baskerville", serif;
+}
+
+/* This part makes sure everything spans across the screen */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.outline-text {
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+/* Navigation Bar */
+ul {
+  list-style-type: none;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #152225;
+  margin-top: 115px;
+  position: fixed;
+  z-index: 11;
+}
+
+li {
+  float: left;
+  margin-left: 35px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 20px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+li a:hover {
+  background-color: #111;
+  font-size: 25px;
+}
+
+/* Header */
+header {
+  background-color: #152238;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 115px;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 45px;
+  color: #FFBF00;
+  text-indent: 50px;
+  font-family: "Inter Bold", sans-serif;
+}
+
+header p {
+  font-size: 25px;
+  margin: 5px;
+  color: white;
+  text-indent: 50px;
+}
+
+.content {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  transform: translate(0, -50%);
+  text-align: left;
+  width: 40%;
+  padding-left: 45px;
+  color: white;
+  z-index: 10;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.button-nav {
+  top: 62%;
+  position: absolute;
+  left: 0;
+  padding-left: 45px;
+  text-align: left;
+  width: 100%;
+}
+
+/* Buttons */
+.map-button,
+.contact-button,
+.learn-button {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+  width: 180px;
+  height: 200px;
+  border-radius: 12px;
+  border: none;
+  text-align: left;
+  font-size: 20px;
+  font-family: "Inter Bold", sans-serif;
+  cursor: pointer;
+  transition-duration: 0.7s;
+}
+
+.map-button {
+  background-color: #AEC6CF;
+}
+
+.contact-button {
+  background-color: #FDFD96;
+}
+
+.learn-button {
+  background-color: #FFFFFF;
+}
+
+.map-button:hover {
+  background-color: #779ECB;
+}
+
+.contact-button:hover {
+  background-color: #FFBF00;
+}
+
+.learn-button:hover {
+  background-color: #A1AEB1;
+}
+
+.content-inside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.emoji {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.button-text {
+  font-size: 15px;
+  margin-bottom: 3px;
+  color: #1a1a1a;
+  font-family: inherit;
+  font-weight: normal;
+}
+
+/* Top Section Background Animation */
+.Section_top {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: change 27.5s infinite ease-in-out;
+  background-color: #152238;
+}
+
+@keyframes change {
+  0% { background-image: url("https://i.ibb.co/N2MjtkJg/images.jpg"); }
+  20% { background-image: url("https://i.ibb.co/gMnhJVD9/red.jpg"); }
+  40% { background-image: url("https://i.ibb.co/Wvdg1KRt/gavel.jpg"); }
+  60% { background-image: url("https://i.ibb.co/dsmhkBT3/god.jpg"); }
+  80% { background-image: url("https://i.ibb.co/gFrSRJgT/courtroomgavel.jpg"); }
+  100% { background-image: url("https://i.ibb.co/N2MjtkJg/images.jpg"); }
+}
+
+.container-full {
+  position: relative;
+  padding-top: 130px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* UK Section Styling */
+.ukimg {
+  width: 58%;
+  margin-top: -40px;
+  margin-bottom: 600px;
+  margin-left: 30px;
+  height: auto;
+  position: relative;
+  object-fit: scaledown;
+  object-position: bottom;
+  z-index: 0;
+  border: 5px solid #FFBF00;
+}
+
+.ukcontain {
+  position: relative !important;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 40px;
+  background-color: #001F4D;
+  width: 100%;
+  padding: 250px 60px 80px 200px;
+  min-height: 100%;
+}
+
+/* Map Text */
+.map-text {
+  width: 25%;
+  background-color: #08224e;
+  color: white;
+  border: 1px solid #ffc72c;
+  border-radius: 8px;
+  padding: 20px;
+  height: fit-content;
+  align-self: flex-start;
+  margin-top: 150px;
+}
+
+.map-text h2 {
+  color: #FFBF00;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.map-text p {
+  font-size: 18px;
+}
+
+/* (Rest of your CSS continues here unchanged — buttons, containers, hover effects, loaders, cards, etc.) */
+
+  </style>
+</head>
+
+<body>
+  <!-- Loader -->
+  <div class="loader-container" id="loader">
+    <div class="gavel-single"></div>
+  </div>
+
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+
+  <ul id="main-nav">
+    <li><a href="Home Page.html">Home</a></li>
+    <li><a href="Interactive Map.html">Interactive Map</a></li>
+    <li><a href="#Contact Us.html">Contact Us</a></li>
+    <li><a href="Learn About Us.html">Learn About Us</a></li>
+  </ul>
+
+  <div class="contact-banner">
+    <h2>We’d Love to Hear from You</h2>
+    <p>Have a question, suggestion, or feedback? Let us know below.</p>
+  </div>
+
+  <div class="contactcontainer">
+    <form action="https://getform.io/f/aejedwyb" method="POST" enctype="multipart/form-data" id="contact-form">
+      <div class="input-row">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+      </div>
+
+      <div class="input-row">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+
+      <div class="input-row">
+        <label for="subject">Main Issue</label>
+        <input id="subject" name="subject" type="text" required>
+      </div>
+
+      <label for="message">Write Your Inquiry</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <div class="file-upload">
+        <label for="attachment" class="file-label"><i class="fa-solid fa-paperclip"></i> Attach a file</label>
+        <input id="attachment" name="attachment" type="file" accept=".pdf,.jpg,.png,.doc,.docx" style="display:none;">
+        <span id="file-chosen">No file chosen</span>
+      </div>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const loader = document.getElementById('loader');
+      const nav = document.getElementById('main-nav');
+      const attachment = document.getElementById('attachment');
+      const fileChosen = document.getElementById('file-chosen');
+
+      nav.addEventListener('click', function (evt) {
+        const a = evt.target.closest('a');
+        if (!a) return;
+        evt.preventDefault();
+        loader.style.display = 'flex';
+        setTimeout(() => window.location.href = a.href, 450);
+      });
+
+      attachment.addEventListener('change', function () {
+        fileChosen.textContent = this.files?.length ? this.files[0].name : 'No file chosen';
+      });
+
+      document.getElementById('contact-form').addEventListener('submit', () => {
+        loader.style.display = 'flex';
+      });
+    });
+  </script>
+</body>
+</html>

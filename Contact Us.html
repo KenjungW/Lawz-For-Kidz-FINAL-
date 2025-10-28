@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // loader + nav transition
+      const loader = document.getElementById('loader');
+      const nav = document.getElementById('main-nav');
+
+      nav.addEventListener('click', function (evt) {
+        const a = evt.target.closest('a');
+        if (!a) return;
+        evt.preventDefault();
+        const href = a.href;
+        loader.style.display = 'flex';
+        setTimeout(() => window.location.href = href, 450);
+      });
+
+      // file input updated label
+      const attachment = document.getElementById('attachment');
+      const fileChosen = document.getElementById('file-chosen');
+      attachment.addEventListener('change', function () {
+        fileChosen.textContent = this.files && this.files.length ? this.files[0].name : 'No file chosen';
+      });
+
+      // optional: prevent double submit and show loader on submit
+      const form = document.getElementById('contact-form');
+      form.addEventListener('submit', function () {
+        loader.style.display = 'flex';
+      });
+    });
+    </script>
+
+
+
+    <script src="styles.css"></script>
+
+
+</head>
+
+
+<body>
+
+  <div id="custom-alert" class="custom-alert">
+    <div class="custom-alert-content">
+      <span id="custom-alert-message"></span>
+      <button onclick="closeAlert()">OK</button>
+    </div>
+  </div>
+
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+        <div class ="white">
+            <h1>Contact Us</h1>
+        </div>
+    </header>
+
+
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="#Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+    </ul>
+
+
+
+    <div class="container-full">
+        <div class="contact-banner">
+            <h2>We’d Love to Hear from You</h2>
+            <p>Have a question, suggestion, or feedback? Let us know below.</p>
+        </div>
+        <div class="contactcontainer">
+
+            <form action="https://getform.io/f/aejedwyb" method="POST" enctype="multipart/form-data" id="contact-form">
+                <div class="input-row">
+                  <div class="input-group"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
+                </div>
+
+                <div class="input-row">
+                  <div class="input-group"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+                  <div class="input-group"><label for="subject">Main Issue</label><input id="subject" name="subject" type="text" required></div>
+                </div>
+
+                <label for="message">Write Your Inquiry</label>
+                <textarea id="message" name="message" required></textarea>
+
+            <div class="file-upload">
+              <label for="attachment" class="file-label">📎 Attach a file</label>
+              <input id="attachment" name="attachment" type="file" accept=".pdf,.jpg,.png,.doc,.docx">
+              <span id="file-chosen">No file chosen</span>
+            </div>
+
+                <input type="submit" value="Submit">
+            </form>
+            `
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+
+</html>
+
+
+

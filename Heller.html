@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>District of Columbia v. Heller</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+        <div class ="white">
+            <h1>District of Columbia v. Heller (2008)</h1>
+        </div>
+    </header>
+
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United States Map.html">United States Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            This Supreme Court case affirmed that the Second Amendment protects an individual’s right to own firearms for lawful purposes, such as self-defense, marking a pivotal moment for gun rights and constitutional interpretation.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>The District of Columbia’s 1975 Firearms Control Act banned private handgun ownership except for law enforcement. Security officer Dick Heller, who wanted a handgun for home protection, was denied a permit and sued, arguing the ban violated his 2nd Amendment rights.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>The District of Columbia argued the Second Amendment applied only to militias and that restricting handguns protected public safety. Heller countered that the ban violated his individual right to possess firearms for lawful purposes, including self-defense.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>In a 5–4 decision, the Supreme Court ruled in favor of Heller, holding that the Second Amendment protects an individual’s right to possess firearms for lawful purposes, such as self-defense in the home. The D.C. handgun ban was declared unconstitutional.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>The ruling was praised by gun rights advocates and criticized by those supporting gun control. Legal scholars noted it redefined the Second Amendment as protecting individual rather than collective rights and significantly influenced later gun legislation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 2008<br> <br>Court: U.S. Supreme Court<br> <br>Legal Area: 2nd Amendment<br> <br>Key Principle: Right to Bear Arms<br> <br>Outcome: Heller won, D.C.’s handgun ban striked down</p>
+        </div>
+
+    </div>
+
+
+<script>
+      const tooltips = {
+        "permit": "Gives the holder authorization to do something",
+        "2nd Amendment": "Individual's right to possess firearms for self-defense",
+        "militias": "Military force raised by civilians",
+      };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+</script>
+
+
+</body>
+</html>

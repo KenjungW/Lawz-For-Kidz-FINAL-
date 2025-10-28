@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>R v. Dudley and Stephens</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>R v. Dudley and Stevens</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United Kingdom Map.html">United Kingdom Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            R v Dudley and Stephens is a landmark criminal law case that established <em>necessity</em> is no defense to murder, shaping moral responsibility and legal principles in life-and-death situations worldwide.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>After a shipwreck, four sailors were stranded without food. Dudley and Stephens killed the weakest member, Parker, for survival. They were later rescued and charged with his murder.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                        <p>Dudley and Stephens claimed necessity, arguing killing Parker was vital to survive. The prosecution argued it was unjustified, deliberate, and dangerous to allow necessity as a defense for murder.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>The court ruled Dudley and Stephens guilty, holding that necessity cannot justify murder. Their death sentence was commuted to six months’ imprisonment due to the extreme survival circumstances.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                    <p>The case became a cornerstone of criminal law, confirming that necessity cannot justify murder. It sparked lasting debate on morality versus legality and remains a key precedent in ethical and legal discussions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1884<br> <br>Court: 	High Court of Justice<br> <br>Legal Area: Criminal (Murder)<br> <br>Key Principle: Necessity<br> <br>Outcome: Dudley and Stephens found guilty, established necessity is not a valid defense for murder </p>
+        </div>
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "necessity": "committing a crime to prevent a greater, imminent harm",
+      "murder": "the unlawful killing of a human being with intent to cause harm or kill",
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+
+</script>
+
+</body>
+</html>
+
+<
+

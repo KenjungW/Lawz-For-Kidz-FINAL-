@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donoghue v Stevenson</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>Silkin v. Beaverbrook Newspaper LTD. (1957)</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United Kingdom Map.html">United Kingdom Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            This case strengthened freedom of the press, establishing that fair and honest comment on matters of public interest is protected, even if critical or exaggerated, shaping modern defamation law.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>Lord Silkin sued Beaverbrook Newspapers for publishing an article implying hypocrisy in his political conduct, claiming it damaged his reputation and was defamatory.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>Silkin argued the article was libelous and portrayed him as insincere. The newspaper contended it was a fair comment made without malice on a matter of public interest.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>The court ruled in favor of Beaverbrook Newspaper, holding that fair comment on public matters, even if exaggerated, is protected under free expression and not defamatory.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>The case reinforced journalistic freedom and set a precedent that fair, honest comment on public issues is lawful — shaping future defamation and media law principles.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1948<br> <br>Court: House of Lords<br> <br>Legal Area: Tort (Defamation)<br> <br>Key Principle: Libel<br> <br>Outcome: Newspaper won; established defense for fair comment</p>
+        </div>
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "libelous": "a published false statement that is damaging to a person's reputation",
+      "defamatory": "damaging the good reputation of someone.",
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+
+</script>
+
+
+</body>
+</html>
