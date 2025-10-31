@@ -238,7 +238,7 @@ header p {
   margin-left: 30px;
   height: auto;
   position: relative;
-  object-fit: scaledown;
+  object-fit: scale-down;
   object-position: bottom;
   z-index: 0;
   border: 5px solid #FFBF00;
