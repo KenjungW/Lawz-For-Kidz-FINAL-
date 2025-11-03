@@ -236,13 +236,50 @@ header p {
   margin-top: 30px;
   margin-bottom: 150px;
   margin-left: 30px;
-  height: auto;
-  position: relative;
-  object-fit: scaledown;
-  object-position: bottom;
-  z-index: 0;
   border: 5px solid #FFBF00;
-  background-color: #001F4D;
+  overflow: hidden; /* removes extra space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img1 svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  background-color: #151218;
+}
+
+path {
+    fill: #443d4b;
+    stroke: #dcbfff;
+    transition: 100ms;
+}
+
+/* Default fill and stroke for UK paths */
+#UK path {
+  fill: #FFFFFF;
+  stroke: #dcbfff;
+  transition: fill 0.5s;
+}
+
+/* Hover effect */
+#UK:hover path {
+  fill: #0091FF; /* change to your desired hover color */
+  cursor: pointer;
+}
+
+/* Default fill and stroke for UK paths */
+#US path {
+  fill: #FFFFFF;
+  stroke: #dcbfff;
+  transition: fill 0.5s;
+}
+
+/* Hover effect */
+#US:hover path {
+  fill: #0091FF; /* change to your desired hover color */
+  cursor: pointer;
 }
 
 .imgcountry {
@@ -2317,5 +2354,4 @@ ul.b {
     margin: 10px auto;
   }
 }
-
 
