@@ -31,7 +31,7 @@ html, body {
 }
 
 /* Navigation Bar */
-ul {
+#main-nav {
   list-style-type: none;
   width: 100%;
   margin: 0px;
@@ -40,11 +40,13 @@ ul {
   background-color: #0a0b12;
   margin-top: 115px;
   position: fixed;
-  z-index: 11
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 li {
-  float: left;
   margin-left: 35px;
 }
 
@@ -190,11 +192,11 @@ header p {
       position: fixed;  /* fixed behind header */
       top: 0;
       left: 0;
-      z-index: 0;
+      z-index: -1;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      animation: change 27.5s infinite ease-in-out; /* Longer for smoother */
+      animation: change 20s infinite ease-in-out; /* Longer for smoother */
       background-color: #152238; /* Dark color matching your design */
     }
 
@@ -279,6 +281,17 @@ path {
 
 /* Hover effect */
 #US:hover path {
+  fill: #0091FF; /* change to your desired hover color */
+  cursor: pointer;
+}
+
+#AUS path {
+  fill: #FFFFFF;
+  stroke: #dcbfff;
+  transition: fill 0.5s;
+}
+
+#AUS:hover path {
   fill: #0091FF; /* change to your desired hover color */
   cursor: pointer;
 }
@@ -376,14 +389,6 @@ path {
   pointer-events: auto;
 }
 
-.container-uk:hover {
-  background-image: url('https://i.ibb.co/N2mSfCx0/IMG-1926.jpg');
-  top: 338px;
-  left: 378px;
-  width: 33px;   /* Matches image width */
-  height: 33px;  /* Matches image height */
-  position: fixed;
-}
 
 
 .map-text {
@@ -635,7 +640,6 @@ path {
     left: 0;
     width: 100%;
     z-index: 10;
-    margin-bottom: 10px;
 
 }
 
@@ -650,7 +654,7 @@ path {
     top: 320px; /* adjust depending on banner height */
     left: 50%;
     transform: translateX(-50%);
-    width: 75%;
+    width: 90%;
     ax-width: 700px;
     background-color: #001F4D;
     padding: 30px 40px;
@@ -698,7 +702,7 @@ input {
 
 textarea {
   width: 100%;
-  height: 150px;
+  height: 90px;
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -1317,6 +1321,38 @@ header p {
   z-index: 0;
 }
 
+/* This is all for the AUS */
+
+.container-australia {
+  position: fixed;
+  width: 10vw;              /* responsive width */
+  height: auto;             /* maintain aspect ratio */
+  overflow: visible;
+  background-size: contain;
+  background-image: url('https://i.ibb.co/WvQfszYJ/IMG-1917.jpg');
+  transition: none;
+  top: 40vh;                /* responsive top */
+  left: 8vw;                /* responsive left */
+  mix-blend-mode: multiply;
+}
+
+.ausimg {
+  width: 50%;
+  margin-top: -40px;
+  margin-bottom: 600px;
+  margin-left: 30px;
+  height: auto;
+  position: relative;
+  object-fit: scaledown;
+  object-position: bottom;
+  z-index: 0;
+  border: 5px solid #FFBF00;
+  display: block;
+  background-color: #151218;
+}
+
+
+
 /* This is all for the US */
 
 .container-usa {
@@ -1352,15 +1388,6 @@ header p {
   pointer-events: auto;
 }
 
-.container-usa:hover {
-  background-image: url('https://i.ibb.co/tTFJfkr7/IMG-1925.jpg');
-  top: 41vh;
-  left: 8vw;
-  width: 10vw;
-  height: auto;
-  position: fixed;
-  background-size: contain;
-}
 
 /* This is all for the UK */
 .container-uk {
@@ -1429,20 +1456,23 @@ header p {
 }
 
 
-.countryimg {
-  width: 65%;
-  margin-top: -30px;
-  margin-bottom: 600px;
-  margin-left: 30px;
-  height: auto;
-  position: relative;
-  object-fit: scaledown;
-  object-position: bottom;
-  z-index: 0;
-  border: 5px solid #FFBF00;
+
+/* Australia */
+.hover-aus {
+  position: absolute;
+  top: 2vh;
+  left: -12vw;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 20px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 5px;
+  z-index: 101;
 }
 
-/* Button Css */
 
 /* Buttons */
 .button-wrapper {
@@ -1507,7 +1537,7 @@ header p {
   color: #fff;
   padding: 6px 10px;
   border-radius: 6px;
-  font-size: 0.85em;           /* Slightly smaller tooltip text */
+  font-size: 0.7em;           /* Slightly smaller tooltip text */
   line-height: 1.3;
   text-align: center;
   opacity: 0;
@@ -1586,13 +1616,13 @@ header p {
     width: 90%;
     ax-width: 700px;
     background-color: #001F4D;
-    padding: 40px;
+    padding: 10px;
     border: 1px solid #002b7f;
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     z-index: 900;
     border: 4px solid #ffc107;
-    height: 600px;
+    height: 350px;
 }
 
 .contactcontainer,
@@ -1609,7 +1639,7 @@ header p {
 .input-row{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
 }
 
 .input-row .input-group{
@@ -1631,7 +1661,7 @@ input {
 
 textarea {
   width: 100%;
-  height: 150px;
+  height: 100px;
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -2351,3 +2381,62 @@ ul.b {
 }
 
 
+.search {
+    position: relative;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: #0091FF;
+    z-index: 200;
+}
+
+.search-input {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+
+.search-item {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+
+.engines {
+    display: none;
+}
+
+.engines a {
+    display: block;
+    padding: 10px;
+    color: white !important;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.engines a:hover {
+    background-color: #1a1b26;
+}
+
+#list {
+    position: absolute;
+    top: 100%;           /* Pulls it below the blue bar */
+    left: 0;
+    width: 100%;         /* Matches search bar width */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #0a0b12; /* Matches nav color so it's not see-through */
+    z-index: 9999;       /* Lifts it ABOVE the background images */
+    border: 1px solid #df1919;
+    border-top: none;
+}
