@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Entick v. Carrington</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>Mabo v Queensland (No 2) (1992)</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="Australia Map.html">Australia Map</a></li>
+        <li class="search-item">
+            <form class="search">
+                <span class="material-symbols-outlined">search</span>
+                <input class="search-input" type="search">
+            </form>
+        </li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            Mabo v Queensland (No 2) is a landmark decision in the High Court of Australia. It is notable for being the first case in Australia to recognize pre-colonial land interests of Indigenous Australians.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>The Murray Islands off the coast of Australia were inhabitant by the Meriam people and the land is owned by the eldest son. However, the British made it so Australia was terra nullius, where the land is owned by no one. Therefore, Eddie Mabo and a few other plantiffs bought the case to court.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>Mabo argued that the Meriam people have occupied the islands for generations, that the court recognize the existence of Native titles, and deem terra nullius invalid. The State of Queensland argued that upon colonization, the Crown became the affective owner of all land.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>The court ruled in favor of Mabo, deciding that native titles existed under Australian common law for indigenous people. They also overturned the doctrine of terra nullius</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>Former prime minister Paul Keating praised the decision, saying it establishes a "fundamental truth". However, the decision was condemned by the government of Western Australia and many pastoralist and mining groups. Mabo Day became an official holiday, celebrated on the 3rd of June, when the ruling was decided.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1992<br> <br>Court: High Court of Australia<br> <br>Legal Area: Property Law<br> <br>Key Principle: Indigenous land rights<br> <br>Outcome: Mabo won, overturned terra nullius.</p>
+        </div>
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "terra nullius": "Describes territory not under the sovereignty of any state",
+      "colonization": "Where a foreign power establishes control over a territory",
+      "native titles": "Legal recognition of Aboriginals, under their customs, rights, interests in land and water"
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+</script>
+
+</body>
+</html>
+
+<
+

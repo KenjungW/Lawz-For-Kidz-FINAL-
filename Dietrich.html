@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dietrich v. The Queen</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <h1>Dietrich v The Queen (1992)</h1>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="Australia Map.html">Australia Map</a></li>
+        <ul id="list"></ul>
+            <li class="search-item">
+                <form class="search">
+                    <span class="material-symbols-outlined">search</span>
+                    <input class="search-input" type="search">
+                </form>
+            </li>
+
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+            Dietrich v. The Queen is a landmark decision in the High Court of Australia. This decision made it so a person who is accused of serious charges are entitled to legal representation.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>Olaf Deitrich was charged for smuggling heroin into Australia. He was refused public funded legal representation and was found guilty and sentenced to 7 years behind bars. Dietrich then appealed to the Court of Criminal Appeal, who refused to hear his appeal. </p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>Dietrich argued that a person must be entitled to a legal assistance without payment in a case where one doesn't have the means to pay. The prosecution argued that there is no constitutional or common law that states the right to legal representation at public expense, and delaying courts would reduce efficiency.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>In a 5-2 decision, the High Court ruled that a person convicted of a serious crime must be provided legal representation, otherwise adjournment would be granted and the trial be delayed. The dissenting justices argued that a fair trial did not include publically funded representation.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                        <p>Human rights lawyers praised the decision for emphasizing the right to a fair trial. After the ruling, an Australian Senate commission recieved submissions that state the ruling could result in legal aid being redirected from family and civil law to criminal law. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1992<br> <br>Court: High Court of Australia<br> <br>Legal Area: Criminal Procedure<br> <br>Key Principle: Right to Council<br> <br>Outcome: Dietrich won, a person charged with a violent crime is entitled to legal council</p>
+        </div>
+
+    </div>
+
+<script>
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "terra nullius": "Describes territory not under the sovereignty of any state",
+      "colonization": "Where a foreign power establishes control over a territory",
+      "native titles": "Legal recognition of Aboriginals, under their customs, rights, interests in land and water"
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+</script>
+
+</body>
+</html>
+
+<
+
