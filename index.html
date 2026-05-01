@@ -5,7 +5,7 @@
     <title>Law For Kidz</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="/w3css/3/w3.css">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
 </head>
 
 
@@ -27,11 +27,14 @@
 
 <!-- Nav -->
     <ul id="main-nav">
-        <li><a href="index.html">Home</a></li>
+
+        <li><a href="Home Page.html">Home</a></li>
         <li><a href="Interactive Map.html">Interactive Map</a></li>
         <li><a href="Contact Us.html">Contact Us</a></li>
         <li><a href="Learn About Us.html">Learn About Us</a></li>
+
     </ul>
+
 
     <div class="content">
         <p style="font-size: 55px;">Law For Kidz</p>
@@ -65,37 +68,72 @@
           <div class="button-text">of the website</div>
         </div>
       </button>
+
+      <div class="daycontain">
+          <div class="wordday"><p>Legal Word of The Day</p></div>
+          <div class="wordinfo">
+              <div id="word">Hello</div>
+              <div id="definition">Hello</div>
+          </div>
+      </div>
+
     </div>
 
-</body>
 
-</body>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q54ZSXBNYN"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    document.addEventListener('DOMContentLoaded', function() {
+        const loader = document.getElementById('loader');
 
-    gtag('config', 'G-Q54ZSXBNYN');
-    
-    const loader = document.getElementById('loader');
+        const nav = document.getElementById('main-nav');
 
-    const nav = document.getElementById('main-nav');
+        nav.addEventListener('click', function(event) {
+          if (event.target.tagName === 'A') {
+            event.preventDefault();
 
-    nav.addEventListener('click', function(event) {
-      if (event.target.tagName === 'A') {
-        event.preventDefault();
+            const destination = event.target.href;
 
-        const destination = event.target.href;
+            loader.style.display = 'flex';
 
-        loader.style.display = 'flex';
+            setTimeout(function() {
+              window.location.href = destination;
+            }, 500); // 500ms delay
+          }
+        });
 
-        setTimeout(function() {
-          window.location.href = destination;
-        }, 500); // 500ms delay
-      }
-    });
+        const words = [
+            { word: "Jurisdiction", definition: "The official authority of a court or legal body to make decisions and judgments." },
+            { word: "Litigation", definition: "The process of taking legal action or resolving disputes in court." },
+            { word: "Defendant", definition: "A person or party accused of a crime or being sued in a lawsuit." },
+            { word: "Plaintiff", definition: "A person or party who brings a case against another in court." },
+            { word: "Verdict", definition: "A formal decision made by a jury or judge in a legal case." },
+            { word: "Subpoena", definition: "A legal document ordering someone to appear in court or produce evidence." },
+            { word: "Affidavit", definition: "A written statement confirmed by oath, used as evidence in court." },
+            { word: "Testimony", definition: "A formal written or spoken statement given in court under oath." },
+            { word: "Appeal", definition: "A request to a higher court to review and change a decision made by a lower court." },
+            { word: "Contract", definition: "A legally binding agreement between two or more parties." },
+            { word: "Liability", definition: "Legal responsibility for one's actions or omissions." },
+            { word: "Negligence", definition: "Failure to take proper care, resulting in damage or harm to another." },
+            { word: "Injunction", definition: "A court order requiring a person to do or stop doing a specific action." },
+            { word: "Statute", definition: "A written law passed by a legislative body." },
+            { word: "Prosecution", definition: "The legal party responsible for presenting a case against someone accused of a crime." }
+        ];
+
+        function setWordOfTheDay() {
+            const date = new Date();
+            const index = date.getDate() % words.length;
+
+            document.getElementById("word").innerText = words[index].word;
+            document.getElementById("definition").innerText = words[index].definition;
+
+            console.log("Updated word at minute:", date.getDate());
+        }
+
+        setWordOfTheDay();
+
+        setInterval(setWordOfTheDay, 86400000);
+
+});
+
 </script>
 
 </body>
