@@ -37,13 +37,10 @@ html, body {
   margin: 0px;
   padding: 0px;
   overflow: hidden;
-  background-color: #0a0b12;
+  background-color: #152225;
   margin-top: 115px;
   position: fixed;
-  z-index: 11;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  z-index: 11
 }
 
 li {
@@ -59,9 +56,9 @@ li a {
   font-size: 18px;
 }
 
-li a:hover {
-  background-color: #111;
-  font-size: 25px;
+.mainnav li {
+    position: relative; /* Essential for positioning the dropdown relative to the parent item */
+    padding: 10px 15px;
 }
 
 /* Style for header */
@@ -2380,3 +2377,103 @@ ul.b {
   }
 }
 
+
+#list {
+    position: absolute;
+    top: 100%;           /* Pulls it below the blue bar */
+    left: 0;
+    width: 100%;         /* Matches search bar width */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #0a0b12; /* Matches nav color so it's not see-through */
+    z-index: 9999;       /* Lifts it ABOVE the background images */
+    border: 1px solid #df1919;
+    border-top: none;
+}
+
+
+
+.wordday {
+    background-color: white;
+    border: 4px solid #000000;
+    width: 70%;
+    height: 10vh;
+    left: 50%;
+    margin-bottom: 0.1vh;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.wordday p{
+    font-size: 35px;
+    text-align: center;
+    padding: 5px;
+    justify-content: center;
+}
+
+.daycontain {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    width: 45%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 30vh;
+}
+
+.wordinfo {
+    background-color: white;
+    border: 4px solid #000000;
+    width: 70%;
+    height: 40vh;
+    left: 50%;
+    margin-bottom: 0.1vh;
+    font-size: 30px;
+    padding-left: 7.5px;
+    padding-top: 7.5px;
+}
+
+#definition {
+    line-height: 30px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute; /* Positions the dropdown over other content */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 0;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content li {
+    display: block; /* Stacks links vertically */
+    padding: 0; /* Reset padding for dropdown items if necessary */
+    width: 100%;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover over the parent list item */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
