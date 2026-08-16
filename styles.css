@@ -464,6 +464,7 @@ path {
 
 .countryimg {
   width: clamp(240px, 65vw, 800px);
+  aspect-ratio: 1000 / 589; /* matches svg viewBox; avoids Safari's auto-height quirk on bare-viewBox SVGs */
   margin-top: -30px;
   margin-bottom: 600px;
   margin-left: 30px;
@@ -1387,6 +1388,7 @@ header p {
 
 .ausimg {
   width: clamp(240px, 50vw, 750px);
+  aspect-ratio: 1050 / 966; /* matches svg viewBox; avoids Safari's auto-height quirk on bare-viewBox SVGs */
   margin-top: -40px;
   margin-bottom: 600px;
   margin-left: 30px;
@@ -2039,6 +2041,7 @@ ul.b {
   padding: 6px;                 /* space inside border */
   box-sizing: border-box;       /* includes padding & border in width */
   width: clamp(240px, 82vw, 550px); /* fluid, capped at original design width */
+  aspect-ratio: 1 / 1;           /* matches svg viewBox; avoids Safari's auto-height quirk on bare-viewBox SVGs */
   height: auto;                 /* let height adjust automatically */
   line-height: 0;               /* prevents inline spacing below SVG */
   margin-left: 50px;
