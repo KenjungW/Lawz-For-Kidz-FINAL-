@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolton v. Stone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <div class="white2">
+                <a href="index.html"><img src="logo.png" alt="LFK logo" width="120" height="109.0076"></a>
+                <h1>Bolton v. Stone (1951)</h1>
+            </div>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="United Kingdom Map.html">United Kingdom Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+          Known as the “cricket ball case,” Bolton v Stone is a landmark decision in the law of negligence.
+          It established that mere <em>foreseeability</em> of harm is not enough for liability — the risk must be probable enough that a reasonable person would take precautions against it.
+        </h2>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>In August 1947, during a game of cricket in Manchester, a ball flew out of the cricket stadium, hitting Miss Stone outside of her house. The High court dismissed the grounds of Miss Stone, claiming there was no negligence due to the incident being isolated to be a nuisance and the lack of incident reports. The Court of Appeal overturned the ruling by the High Court, claiming the club were aware of the risk.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>The plaintiff (Miss Stone) argues that a ball being hit at large distance warrants a warning for a passer-by, fixing liability in negligence for her injuries. She also claims the ball was a dangerous object that escaped from the cricket grounds. The defendant (The club committee) argues that the possibility of harm was low and reasonable precautions were taken.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>The House of Lords found in favor of the defendant, finding there was no negligence. Most of the Lords considered that the incident was too remote for the reasonable person, with Lord Porter contending that hitting the ball hard was an objective of the game. They also found that while the risk was foreseeable, it was highly improbable.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                    <p>Bolton v. Stone became a leading case in tort and negligence law, establishing that the defendant is not negligent if the damage to the plaintiff was not reasonably foreseeable. Sports centers and clubs often use this case to contend their safety measures were reasonable relative to the probability of risk.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1951<br> <br>Court: House of Lords<br> <br>Legal Area: Tort (Negligence)<br> <br>Key Principle: Foreseeability &amp; Standard of Care<br> <br>Outcome: Bolton (the cricket club) won; House of Lords found no negligence</p>
+        </div>
+
+    </div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q54ZSXBNYN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q54ZSXBNYN');
+
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "negligence": "Someone's careless actions lead to harm or loss for another person",
+      "nuisance": "An act that unreasonably interferes with someone else's use or enjoyment of their property",
+      "foreseeable": "Something a reasonable person could predict might happen",
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+
+</script>
+
+</body>
+</html>
+
+
