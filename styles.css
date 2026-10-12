@@ -992,6 +992,28 @@ textarea {
     text-align: left;
 }
 
+/* Category tags shown on each case page */
+.case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 75%;
+    margin-top: 14px;
+}
+
+.case-tag {
+    display: inline-block;
+    background-color: #1e293b;
+    border: 1.5px solid #FFBF00;
+    color: #FFBF00;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
 /* Layout styles */
 .layout {
     width: 80%;
