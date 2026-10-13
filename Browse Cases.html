@@ -7,6 +7,68 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="/w3css/3/w3.css">
 
+    <style>
+      /* Let this one page scroll normally, unlike the rest of the site */
+      html, body {
+        position: static !important;
+        height: auto !important;
+        overflow-y: auto !important;
+      }
+
+      .tile-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 22px;
+        max-width: 1400px;
+        margin-top: 30px;
+        margin-right: 400px;
+      }
+      .tile {
+        aspect-ratio: 1 / 1;
+        background-color: #1e293b;
+        border: 2px solid #334155;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 18px;
+        position: relative;
+        text-decoration: none;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+      .tile::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 5px;
+        background-color: #FFBF00;
+        border-radius: 10px 10px 0 0;
+      }
+      .tile:hover {
+        border-color: #FFBF00;
+        transform: translateY(-3px);
+      }
+      .tile span {
+        font-family: "Baskerville", serif;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        line-height: 1.3;
+      }
+
+      .browse-container {
+          width: 100%;
+          min-height: 100vh;
+          background-color: #001F4D;
+          padding: 115px 40px 30px 40px;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+       }
+    </style>
+
 </head>
 <body>
 <!-- This is the top section -->
@@ -29,14 +91,56 @@
         <li><a href="Browse Cases.html">Browse Cases</a></li>
     </ul>
 
-    <div class="casecontainer2">
-        <h2 class="case-subheading">
-          We're building a way to browse every case by century, region, and legal focus — check back soon!
-        </h2>
+    <div class="browse-container">
+        <p class="eyebrow" style="color:#FFBF00; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin:0 0 10px;">Category</p>
+        <h2 class="case-subheading" id="catTitle">All Cases</h2>
+        <p id="catDesc" style="color:#FFBF00; font-size:17px; max-width:700px; line-height:1.5; margin:0 0 20px;">Every case on Lawz for Kidz.</p>
+
+        <div class="tile-grid" id="tileGrid"></div>
     </div>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q54ZSXBNYN"></script>
 <script>
+
+    const cases = [
+    { title: "Entick v. Carrington", href: "Carrington.html", century: "18th Century", region: "United Kingdom", focus: "Civil Liberties" },
+    { title: "Marbury v. Madison", href: "Madison.html", century: "19th Century", region: "United States", focus: "Constitutional Law" },
+    { title: "Rylands v. Fletcher", href: "Rylands.html", century: "19th Century", region: "United Kingdom", focus: "Strict Liability" },
+    { title: "R v. Dudley and Stephens", href: "Dudley.html", century: "19th Century", region: "United Kingdom", focus: "Criminal Law" },
+    { title: "Derry v. Peek", href: "Peek.html", century: "19th Century", region: "United Kingdom", focus: "Deceit & Misrepresentation" },
+    { title: "Schenck v. United States", href: "Schneck.html", century: "20th Century", region: "United States", focus: "Free Speech" },
+    { title: "Donoghue v Stevenson", href: "Donoghue.html", century: "20th Century", region: "United Kingdom", focus: "Negligence" },
+    { title: "Korematsu v. United States", href: "Korematsu.html", century: "20th Century", region: "United States", focus: "Civil Rights" },
+    { title: "Bolton v. Stone", href: "Bolton.html", century: "20th Century", region: "United Kingdom", focus: "Negligence" },
+    { title: "Silkin v. Beaverbrook", href: "Beaverbrook.html", century: "20th Century", region: "United Kingdom", focus: "Defamation" },
+    { title: "Givhan v. Western Line", href: "Givhan.html", century: "20th Century", region: "United States", focus: "Civil Rights" },
+    { title: "Mabo v Queensland (No 2)", href: "Mabo.html", century: "20th Century", region: "Australia", focus: "Property Law" },
+    { title: "Dietrich v The Queen", href: "Dietrich.html", century: "20th Century", region: "Australia", focus: "Criminal Law" },
+    { title: "District of Columbia v. Heller", href: "Heller.html", century: "21st Century", region: "United States", focus: "Constitutional Law" },
+    { title: "RF v Secretary of State for Work and Pensions", href: "Pension.html", century: "21st Century", region: "United Kingdom", focus: "Human Rights" }
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  const filter = params.get('filter');
+
+  const matches = filter
+    ? cases.filter(c => c.century === filter || c.region === filter || c.focus === filter)
+    : cases;
+
+  document.getElementById('catTitle').textContent = filter || "All Cases";
+  document.getElementById('catDesc').textContent = filter
+    ? `Every case tagged ${filter}.`
+    : "Every case on Lawz for Kidz.";
+
+  const grid = document.getElementById('tileGrid');
+  matches.forEach(c => {
+    const tile = document.createElement('a');
+    tile.className = 'tile';
+    tile.href = c.href;
+    tile.innerHTML = `<span>${c.title}</span>`;
+    grid.appendChild(tile);
+  });
+
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
