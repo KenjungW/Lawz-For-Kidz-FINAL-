@@ -1014,6 +1014,11 @@ textarea {
     white-space: nowrap;
 }
 
+a.case-tag {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* Layout styles */
 .layout {
     width: 80%;
