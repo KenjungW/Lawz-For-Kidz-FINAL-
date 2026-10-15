@@ -1409,7 +1409,7 @@ header p {
 }
 
 .ausimg {
-  width: clamp(240px, 50vw, 750px);
+  width: clamp(210px, 43vw, 640px);
   aspect-ratio: 1050 / 966; /* matches svg viewBox; avoids Safari's auto-height quirk on bare-viewBox SVGs */
   margin-top: -40px;
   margin-bottom: 600px;
