@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re H (Minors)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+
+</head>
+<body>
+<!-- This is the top section -->
+    <div class="loader-container" id="loader">
+      <div class="gavel-single"></div>
+    </div>
+<!-- Header -->
+    <header>
+            <div class="white2">
+                <a href="index.html"><img src="logo.png" alt="LFK logo" width="120" height="109.0076"></a>
+                <h1>Re H (Minors) (1997)</h1>
+            </div>
+    </header>
+<!-- Nav -->
+    <ul id="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Interactive Map.html">Interactive Map</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li><a href="Learn About Us.html">Learn About Us</a></li>
+        <li><a href="Browse Cases.html">Browse Cases</a></li>
+        <li><a href="United Kingdom Map.html">United Kingdom Map</a></li>
+    </ul>
+
+    <div class="casecontainer2">
+        <h2 class="case-subheading">
+          Re H is the leading House of Lords case on <em>acquiescence</em> under the Hague Child Abduction Convention —
+          holding that a parent who honestly pursues religious arbitration while still seeking their child's return has not accepted the abduction.
+        </h2>
+
+        <div class="case-tags">
+          <a class="case-tag" href="Browse Cases.html?filter=20th Century">20th Century</a>
+          <a class="case-tag" href="Browse Cases.html?filter=United Kingdom">United Kingdom</a>
+          <a class="case-tag" href="Browse Cases.html?filter=Family Law">Family Law</a>
+        </div>
+
+        <div class="layout">
+            <div class="container">
+                <div class="card">
+                    <h3>Facts</h3>
+                    <p>An Israeli father and English mother married in 1991 and had three children in Israel. Four years later, the mother took the children to England without his consent. Bound by Jewish law, he first pursued the rabbinical court, which the mother ignored for six months before he turned to the Hague Convention. The trial court found no acquiescence; the Court of Appeal disagreed.</p>
+                </div>
+                <div class="card">
+                    <h3>Arguments</h3>
+                    <p>The mother argued the father showed no clear evidence of seeking the children's return through the rabbinical court, and that his offer to return them after a Passover visit was itself inconsistent with wanting immediate return — amounting to acquiescence. The father argued he never consented to their removal, remained anxious for their return throughout, and that the Passover request was simply a wish to see his children.</p>
+                </div>
+                <div class="card">
+                    <h3>Judgement</h3>
+                    <p>The House of Lords ruled in favor of the father, holding that acquiescence depends entirely on the parent's actual intention, not merely an assessment of their actions. The Lords also held that pursuing religious arbitration and negotiation to secure a child's return does not amount to accepting their permanent relocation.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                    <p>The court ordered the immediate return of the children to Israel with their father. This landmark decision protected the role of religious arbitration in family disputes, and it raised the bar for the acquiescence defense: a left-behind parent must now show genuine acceptance of the children remaining abroad, not just the passage of time.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-card">
+          <h3>Quick Facts</h3>
+          <p>Year: 1997<br> <br>Court: House of Lords<br> <br>Legal Area: Family Law (International Child Abduction)<br> <br>Key Principle: Acquiescence Requires Actual Intention<br> <br>Outcome: Father won; children ordered returned to Israel</p>
+        </div>
+
+    </div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q54ZSXBNYN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q54ZSXBNYN');
+
+    const loader = document.getElementById('loader');
+
+    const nav = document.getElementById('main-nav');
+
+    nav.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+
+        const destination = event.target.href;
+
+        loader.style.display = 'flex';
+
+        setTimeout(function() {
+          window.location.href = destination;
+        }, 500); // 500ms delay
+      }
+    });
+
+    const tooltips = {
+      "acquiescence": "Going along with or accepting something without formally agreeing to it",
+      "rabbinical court": "A religious court that resolves disputes according to Jewish law",
+    };
+
+    function addTooltipsToCard(card) {
+      const pattern = new RegExp(`\\b(${Object.keys(tooltips).join("|")})\\b`, "gi");
+      card.innerHTML = card.innerHTML.replace(pattern, (match) => {
+        const key = Object.keys(tooltips).find(k => k.toLowerCase() === match.toLowerCase());
+        return `
+          <span class="hover-text-wrapper">
+            ${match}
+            <span class="hover-textcase">${tooltips[key]}</span>
+          </span>
+        `;
+      });
+    }
+
+
+    document.querySelectorAll('.card').forEach(addTooltipsToCard);
+
+</script>
+
+</body>
+</html>
+
+
